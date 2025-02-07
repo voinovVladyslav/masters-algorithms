@@ -1,6 +1,10 @@
 import math
 import string
 
+GraphAsDict = dict[str, dict[str, int]]
+CostsDict = dict[str, int | float]
+ParentsDict = dict[str, str | None]
+
 
 def get_node_name(number: int) -> str:
     """
@@ -29,9 +33,9 @@ def display_graph(graph: list[list]) -> None:
         print(node_name, vertices)
 
 
-def graph_to_dict(graph: list[list[int]]) -> dict[dict[str, int]]:
+def graph_to_dict(graph: list[list[int]]) -> GraphAsDict:
     nodes = len(graph)
-    new_graph = {}
+    new_graph: GraphAsDict = {}
     for i in range(nodes):
         parent_name = get_node_name(i)
         new_graph[parent_name] = {}
@@ -44,13 +48,13 @@ def graph_to_dict(graph: list[list[int]]) -> dict[dict[str, int]]:
     return new_graph
 
 
-def dijkstra(graph: dict[dict[str, int]], start: str, end: str) -> list[str]:
-    costs = {}
+def dijkstra(graph: GraphAsDict, start: str, end: str) -> list[str]:
+    costs: CostsDict = {}
     for key in graph.keys():
         costs[key] = math.inf
     costs[start] = 0
 
-    parents = {}
+    parents: ParentsDict = {}
     for key in graph.keys():
         parents[key] = None
     parents.pop(start)
@@ -68,7 +72,6 @@ def dijkstra(graph: dict[dict[str, int]], start: str, end: str) -> list[str]:
                 parents[neighbor] = node_name
 
         visited.append(node_name)
-
         node_name = get_smallest_cost_node(costs, visited)
 
     result = [end]
@@ -80,7 +83,7 @@ def dijkstra(graph: dict[dict[str, int]], start: str, end: str) -> list[str]:
     return result
 
 
-def get_smallest_cost_node(costs: dict[str, int], visited: list[str]) -> str | None:
+def get_smallest_cost_node(costs: CostsDict, visited: list[str]) -> str | None:
     min_value = math.inf
     min_node = None
     for node_name, value in costs.items():
