@@ -37,7 +37,7 @@ def graph_to_dict(graph: list[list[int]]) -> GraphAsDict:
         parent_name = get_node_name(i)
         new_graph[parent_name] = {}
         for j in range(nodes):
-            if not (value := graph[i][j]):
+            if (value := graph[i][j]) is None:
                 continue
             child_name = get_node_name(j)
             new_graph[parent_name][child_name] = value
