@@ -7,6 +7,5 @@ ParentsDict: TypeAlias = dict[str, str | None]
 
 
 Node: TypeAlias = int
-Parent: TypeAlias = Node | None
 Cost: TypeAlias = Any
 AdjacencyMatrix: TypeAlias = list[list[Cost | None]]
