@@ -1,8 +1,9 @@
-from graphs.dijkstra import dijkstra, dijkstra_raw
-from graphs.utils import graph_to_dict
+from graphs.dijkstra import dijkstra
+from graphs.types import AdjacencyMatrix
 
 _ = None
-graph: list[list[int | None]] = [
+# Dijkstra
+graph: AdjacencyMatrix = [
     # a  b  c  d  e  f
     [_, 1, _, 10, _, _],  # a
     [_, _, 13, _, _, _],  # b
@@ -12,6 +13,7 @@ graph: list[list[int | None]] = [
     [_, _, _, _, _, _],  # f
 ]
 
+# Bellman Ford
 # graph = [
 #     # a b  c  d  e  f
 #     [_, 5, 2, _, _, _],  # a
@@ -21,6 +23,7 @@ graph: list[list[int | None]] = [
 #     [_, _, 2, 2, _, 9],  # e
 #     [_, _, _, _, _, _],  # f
 # ]
+# Bellman Ford
 # graph = [
 #     # a b  c  d  e  f
 #     [_, 5, 2, _, _, _],  # a
@@ -31,8 +34,5 @@ graph: list[list[int | None]] = [
 #     [_, _, _, _, _, _],  # f
 # ]
 
-graph_as_dict = graph_to_dict(graph)
-print(graph_as_dict)
 
-print(dijkstra(graph_as_dict, 'A', 'F'))
-print(dijkstra_raw(graph, 0, 5))
+print(dijkstra(graph, 0, 5))
