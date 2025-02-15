@@ -19,14 +19,15 @@ def get_node_name(number: int) -> str:
     return string.ascii_uppercase[first - 1] + string.ascii_uppercase[last]
 
 
-def display_graph(graph: list[list]) -> None:
+def display_graph(graph: list[list], use_names: bool = True) -> None:
     nodes = len(graph)
     for i in range(nodes):
-        node_name = get_node_name(i)
+        node_name = get_node_name(i) if use_names else i
         vertices = []
         for j in range(nodes):
             if graph[i][j]:
-                vertices.append(get_node_name(j))
+                other_name = get_node_name(j) if use_names else j
+                vertices.append(other_name)
         print(node_name, vertices)
 
 
