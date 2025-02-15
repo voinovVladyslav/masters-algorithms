@@ -31,7 +31,7 @@ def display_graph(graph: list[list], use_names: bool = True) -> None:
         print(node_name, vertices)
 
 
-def graph_to_dict(graph: list[list[int]]) -> GraphAsDict:
+def graph_to_dict(graph: list[list[int | None]]) -> GraphAsDict:
     nodes = len(graph)
     new_graph: GraphAsDict = {}
     for i in range(nodes):

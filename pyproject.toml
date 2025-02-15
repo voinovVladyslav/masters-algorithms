@@ -10,3 +10,24 @@ dependencies = []
 dev = [
     "mypy>=1.15.0",
 ]
+
+[tool.ruff]
+line-length = 80
+exclude = [
+    "venv",
+    ".vscode",
+    ".pytest_cache",
+    "**/migrations/**",
+    ".mypy_cache",
+    ".ruff_cache",
+]
+
+
+[tool.ruff.lint]
+extend-select = ["E501", "I", "N", "PT", "PL", "RUF"]
+fixable = ["ALL"]
+
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"

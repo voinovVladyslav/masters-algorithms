@@ -1,6 +1,12 @@
 import math
 
-from graphs.types import GraphAsDict, CostsDict, ParentsDict
+from graphs.types import (
+    AdjacencyMatrix,
+    CostsDict,
+    GraphAsDict,
+    Node,
+    ParentsDict,
+)
 
 
 def dijkstra(graph: GraphAsDict, start: str, end: str) -> list[str]:
@@ -50,3 +56,10 @@ def get_smallest_cost_node(costs: CostsDict, visited: list[str]) -> str | None:
             min_node = node_name
 
     return min_node
+
+
+def dijkstra_raw(graph: AdjacencyMatrix, start: Node, end: Node) -> list[Node]:
+    """
+    Graph as adjacency matrix
+    """
+    return []

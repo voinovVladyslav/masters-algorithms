@@ -1,11 +1,13 @@
 import math
 
-from graphs.types import GraphAsDict, CostsDict, ParentsDict
+from graphs.types import CostsDict, GraphAsDict, ParentsDict
 
 
-def initialize_single_source(graph: GraphAsDict, start: str) -> tuple[CostsDict, ParentsDict]:
-    costs = {}
-    parents = {}
+def initialize_single_source(
+    graph: GraphAsDict, start: str
+) -> tuple[CostsDict, ParentsDict]:
+    costs: CostsDict = {}
+    parents: ParentsDict = {}
 
     for vertice in graph:
         costs[vertice] = math.inf
@@ -15,7 +17,9 @@ def initialize_single_source(graph: GraphAsDict, start: str) -> tuple[CostsDict,
     return costs, parents
 
 
-def bellman_ford(graph: GraphAsDict, start: str, end: str) -> tuple[bool, tuple[str, ...]]:
+def bellman_ford(
+    graph: GraphAsDict, start: str, end: str
+) -> tuple[bool, tuple[str, ...] | None]:
     def produce_result(parents: ParentsDict, end: str) -> tuple[str, ...]:
         result = [end]
         parent = parents.get(end, None)
@@ -32,7 +36,6 @@ def bellman_ford(graph: GraphAsDict, start: str, end: str) -> tuple[bool, tuple[
                 if costs[to_vert] > costs[from_vert] + from_to_cost:
                     costs[to_vert] = costs[from_vert] + from_to_cost
                     parents[to_vert] = from_vert
-
 
     for from_vert, vertice in graph.items():
         for to_vert in vertice.keys():
