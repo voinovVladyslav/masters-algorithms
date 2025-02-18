@@ -1,6 +1,5 @@
 from graphs.dijkstra import dijkstra  # noqa
-from graphs.bellman_ford import bellman_ford, bellman_ford_new
-from graphs.utils import graph_to_dict
+from graphs.bellman_ford import bellman_ford
 
 from graphs.types import AdjacencyMatrix
 
@@ -38,5 +37,4 @@ graph: AdjacencyMatrix = [
 # ]
 
 
-print(bellman_ford(graph_to_dict(graph), 'A', 'F'))
-print(bellman_ford_new(graph, 0, 5))
+print(bellman_ford(graph, 0, 5))
