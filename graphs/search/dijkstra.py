@@ -7,7 +7,9 @@ from graphs.types import (
 )
 
 
-def dijkstra(graph: AdjacencyMatrix, start: Node, end: Node) -> list[Node]:
+def calculate_dijkstra(
+    graph: AdjacencyMatrix, start: Node, end: Node
+) -> list[Node]:
     """
     Graph as adjacency matrix
     """

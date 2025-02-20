@@ -21,7 +21,7 @@ def initialize_single_source(
     return costs, parents
 
 
-def bellman_ford(
+def calculate_bellman_ford(
     graph: AdjacencyMatrix, start: int, end: int
 ) -> tuple[bool, tuple[int, ...] | None]:
     costs, parents = initialize_single_source(graph, start)
