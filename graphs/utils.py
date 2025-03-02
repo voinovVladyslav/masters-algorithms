@@ -1,6 +1,6 @@
 import string
 
-from graphs.types import GraphAsDict
+from graphs.types import AdjacencyMatrix, GraphAsDict
 
 
 def get_node_name(number: int) -> str:
@@ -19,16 +19,16 @@ def get_node_name(number: int) -> str:
     return string.ascii_uppercase[first - 1] + string.ascii_uppercase[last]
 
 
-def display_graph(graph: list[list], use_names: bool = True) -> None:
-    nodes = len(graph)
-    for i in range(nodes):
-        node_name = get_node_name(i) if use_names else i
-        vertices = []
-        for j in range(nodes):
-            if graph[i][j]:
-                other_name = get_node_name(j) if use_names else j
-                vertices.append(other_name)
-        print(node_name, vertices)
+def display_graph(graph: AdjacencyMatrix) -> None:
+    print('   ' + ''.join(f'{x:^3}' for x in range(len(graph))))
+    for i, row in enumerate(graph):
+        print(f'{i:<3}', end='')
+        for value in row:
+            display = value
+            if value is None:
+                display = '_'
+            print(f'{display:^3}', end='')
+        print()
 
 
 def graph_to_dict(graph: list[list[int | None]]) -> GraphAsDict:

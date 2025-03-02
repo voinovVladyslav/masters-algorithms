@@ -1,8 +1,7 @@
-from pprint import pprint
-
 from graphs.mst.kruskal import minimum_spanning_tree as kruskal
 from graphs.mst.prim import minimum_spanning_tree as prim
 from graphs.types import AdjacencyMatrix
+from graphs.utils import display_graph
 
 _ = None
 # Dijkstra
@@ -47,5 +46,8 @@ graph: AdjacencyMatrix = [
 ]
 
 
-pprint(prim(graph))
-pprint(kruskal(graph))
+prim_res = prim(graph)
+display_graph(prim_res)
+print()
+kruskal_res = kruskal(graph)
+display_graph(kruskal_res)
