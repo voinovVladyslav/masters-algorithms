@@ -4,7 +4,8 @@
 * **Dijkstra's algorithm** - single source shortest path, non-negavite and directed acyclic graphs only
 * **Bellman-Ford algorithm** - single source shortest path, allows negavite values
 * A\* algorithm - single source, speed up by heuristic
-* Floyd-Warshall algorithm - all pairs shortest path
+* **Floyd-Warshall algorithm** - all pairs shortest path
+* Jonsons algorithm - fastest all pairs shortest path, best works on large sparce graphs
 
 # Minimum spanning tree
 * **Kruskal's algorithm** - most commonly used algorithm

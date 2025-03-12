@@ -19,9 +19,9 @@ def get_node_name(number: int) -> str:
     return string.ascii_uppercase[first - 1] + string.ascii_uppercase[last]
 
 
-def display_graph(graph: AdjacencyMatrix) -> None:
-    print('   ' + ''.join(f'{x:^3}' for x in range(len(graph))))
-    for i, row in enumerate(graph):
+def display_graph(graph: AdjacencyMatrix, start: int = 0) -> None:
+    print('   ' + ''.join(f'{x:^3}' for x in range(start, len(graph) + start)))
+    for i, row in enumerate(graph, start):
         print(f'{i:<3}', end='')
         for value in row:
             display = value
