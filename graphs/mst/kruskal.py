@@ -21,6 +21,9 @@ class Edge:
         )
         return same_cost and (same_path or reversed_path)
 
+    def __hash__(self):
+        return hash(id(self))
+
 
 def find_set(vertice: int, sets: list[set[int]]) -> set[int]:
     for s in sets:

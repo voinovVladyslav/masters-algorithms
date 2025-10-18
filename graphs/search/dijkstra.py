@@ -1,10 +1,6 @@
 import math
 
-from graphs.types import (
-    AdjacencyMatrix,
-    Cost,
-    Node,
-)
+from graphs.types import AdjacencyMatrix, Cost, Node
 
 
 def calculate_dijkstra(
