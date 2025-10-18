@@ -4,16 +4,6 @@ from graphs.types import AdjacencyMatrix
 from graphs.utils import display_graph
 
 _ = None
-# Dijkstra
-# graph: AdjacencyMatrix = [
-#     # a  b  c  d  e  f
-#     [_, 1, 5, 10, _, _],  # a
-#     [_, _, 13, _, _, _],  # b
-#     [_, _, _, _, 2, _],  # c
-#     [_, _, 1, _, _, 12],  # d
-#     [_, _, _, _, _, 5],  # e
-#     [_, _, _, _, _, _],  # f
-# ]
 
 # Bellman Ford
 # graph: AdjacencyMatrix = [

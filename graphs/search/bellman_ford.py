@@ -40,6 +40,7 @@ def calculate_bellman_ford(
             if cost is None:
                 continue
 
+            # check for negative cycle
             if costs[to_vert] > costs[from_vert] + cost:
                 return False, None
 
